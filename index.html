@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Styl & Nożyczki — Katowice | Naturalny Salon Eco</title>
+  <meta name="description" content="Styl & Nożyczki — naturalny salon fryzjerski w Katowicach. Eco styl, pielęgnacja i nowoczesne cięcia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sage-dark: #122410;
+      --sage-primary: #2A4D24;
+      --sage-light: #C2D3B8;
+      --bg-cream: #F9F8F5;
+      --bg-white: #FFFFFF;
+      --text-dark: #0D110C;
+      --text-muted: #556052;
+      --border-subtle: rgba(42, 77, 36, 0.12);
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-cream);
+      color: var(--text-dark);
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    
+    button { font-family: inherit; cursor: pointer; border: none; background: transparent; }
+
+    .grid-lines {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 8%;
+      z-index: 1;
+    }
+
+    .grid-line {
+      width: 1px;
+      background: rgba(42, 77, 36, 0.03);
+      height: 100%;
+    }
+
+    section, footer { position: relative; z-index: 2; }
+
+    .navbar-capsule {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(249, 248, 245, 0.85);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(42, 77, 36, 0.08);
+      border-radius: 100px;
+      padding: 0.5rem 0.6rem 0.5rem 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      z-index: 1000;
+      box-shadow: 0 16px 40px rgba(18, 36, 16, 0.04);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    }
+    
+    .navbar-capsule.hide {
+      transform: translateX(-50%) translateY(-130%);
+      opacity: 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--sage-dark);
+    }
+    
+    .brand svg { width: 1.4rem; height: 1.4rem; color: var(--sage-primary); }
+
+    .nav-links { display: flex; gap: 1.8rem; }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--sage-dark); }
+
+    .nav-cta {
+      background: var(--sage-dark);
+      color: #fff;
+      padding: 0.65rem 1.5rem;
+      border-radius: 100px;
+      font-weight: 500;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: background 0.3s ease;
+    }
+
+    .nav-cta:hover { background: var(--sage-primary); }
+
+    .image-placeholder {
+      background: #F0EDE6;
+      border: 1px solid rgba(42, 77, 36, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .image-placeholder::before {
+      content: 'Miejsce na fotografię autorską';
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(18, 36, 16, 0.3);
+      font-weight: 500;
+    }
+
+    .hero {
+      min-height: 95vh;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 4rem;
+      padding: 8rem 8% 4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      color: var(--sage-primary);
+      margin-bottom: 2.5rem;
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--text-dark);
+      margin-bottom: 3rem;
+    }
+    
+    .hero h1 em { font-style: italic; font-family: var(--font-display); }
+
+    .hero-desc {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+      color: var(--text-muted);
+      max-width: 550px;
+      line-height: 1.4;
+      font-style: italic;
+      border-left: 1px solid var(--sage-primary);
+      padding-left: 1.5rem;
+    }
+
+    .hero .image-placeholder {
+      height: 65vh;
+      width: 100%;
+      max-height: 600px;
+    }
+
+    .editorial-section {
+      padding: 10rem 8%;
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    
+    .editorial-section.reverse {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .text-block { padding: 1rem 0; }
+
+    .text-block .eyebrow {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--sage-primary);
+      margin-bottom: 1.5rem;
+      display: block;
+      font-weight: 700;
+    }
+
+    .text-block h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+    }
+
+    .text-block p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.8rem; font-weight: 300; }
+
+    .editorial-section .image-placeholder {
+      height: 55vh;
+      width: 100%;
+    }
+
+    .values-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 4.5rem;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 3rem;
+      grid-column: 1 / -1;
+    }
+
+    .value-item h4 {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      color: var(--sage-dark);
+    }
+
+    .value-item p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; font-weight: 300; }
+
+    .pricing-section { padding: 8rem 8%; background: var(--bg-white); border-top: 1px solid var(--border-subtle); }
+
+    .section-header { text-align: center; margin-bottom: 5rem; }
+
+    .section-header .eyebrow {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--sage-primary);
+      display: block;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    .section-header h2 { font-family: var(--font-display); font-size: clamp(2.4rem, 4vw, 3.5rem); font-weight: 400; }
+
+    .pricing-container { max-width: 850px; margin: 0 auto; }
+
+    .pricing-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding: 1.8rem 0;
+      border-bottom: 1px solid rgba(42, 77, 36, 0.08);
+      transition: opacity 0.3s ease;
+    }
+
+    .pricing-row:hover { opacity: 0.8; }
+
+    .pricing-row:last-child { border-bottom: none; }
+
+    .service-info { max-width: 75%; }
+    
+    .service-title {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .service-description { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; font-weight: 300; }
+
+    .service-price { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--sage-dark); white-space: nowrap; padding-left: 1rem; }
+
+    .pricing-footer { text-align: center; margin-top: 3.5rem; font-size: 0.88rem; color: var(--text-muted); font-style: italic; }
+
+    .testimonials-section {
+      padding: 8rem 8%;
+      background: var(--sage-dark);
+      color: #FFFFFF;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonial-item { position: relative; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 1.5rem; }
+
+    .testimonial-text {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.9);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-author {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--sage-light);
+      font-weight: 600;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--bg-white);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .contact-form-block {
+      padding: 8rem 12% 8rem 16%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-form-block h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 4vw, 3.5rem);
+      font-weight: 400;
+      margin-bottom: 3.5rem;
+      line-height: 1.15;
+    }
+
+    .editorial-form .form-group { margin-bottom: 2.5rem; }
+    .editorial-form label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    .editorial-form input, 
+    .editorial-form select, 
+    .editorial-form textarea {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.6rem 0;
+      background: transparent;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--text-dark);
+      border-radius: 0;
+      transition: border-color 0.3s ease;
+    }
+    
+    .editorial-form input:focus, 
+    .editorial-form select:focus, 
+    .editorial-form textarea:focus {
+      outline: none;
+      border-bottom-color: var(--text-dark);
+    }
+    
+    .editorial-form button {
+      background: var(--sage-dark);
+      color: #fff;
+      padding: 1rem 2.8rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 600;
+      margin-top: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .editorial-form button:hover { background: var(--sage-primary); }
+
+    .info-map-block {
+      background: #F4F2EC;
+      padding: 8rem 16% 8rem 12%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-left: 1px solid var(--border-subtle);
+    }
+    .info-content h3 { font-family: var(--font-display); font-size: 2rem; font-weight: 400; margin-bottom: 2.5rem; }
+
+    .info-details { display: grid; gap: 2.5rem; }
+
+    .info-details p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+    
+    .info-details p strong { 
+      color: var(--text-dark); 
+      display: flex; 
+      align-items: center; 
+      gap: 0.5rem; 
+      font-size: 0.75rem; 
+      text-transform: uppercase; 
+      letter-spacing: 0.1em; 
+      margin-bottom: 0.5rem; 
+    }
+    
+    .info-details p strong svg {
+      width: 1rem;
+      height: 1rem;
+      color: var(--sage-primary);
+    }
+
+    footer {
+      padding: 6rem 8% 4rem;
+      background: #0B120A;
+      color: rgba(255, 255, 255, 0.65);
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 4rem;
+    }
+    footer .brand { color: #fff; }
+
+    footer .brand svg { color: var(--sage-light); }
+
+    footer h4 { font-family: var(--font-body); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: #fff; margin-bottom: 1.5rem; }
+
+    footer ul { list-style: none; display: grid; gap: 0.8rem; }
+
+    footer a { transition: color 0.3s ease; font-size: 0.9rem; }
+
+    footer a:hover { color: #fff; }
+
+    .footer-bottom {
+      grid-column: 1/-1;
+      text-align: center;
+      padding-top: 4rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: var(--bg-cream);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      transform: translateY(-100%);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .mobile-menu.open { transform: translateY(0); }
+
+    .mobile-menu a { font-family: var(--font-display); font-size: 2.2rem; color: var(--sage-dark); }
+
+    .mobile-bar {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 70px;
+      background: rgba(249, 248, 245, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 0 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1001;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    
+    .burger-btn {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+    }
+
+    @media (max-width: 1024px) {
+      .grid-lines { display: none; }
+      .hero { grid-template-columns: 1fr; padding-top: 10rem; gap: 3rem; }
+      .hero .image-placeholder { height: 45vh; }
+      .editorial-section, .editorial-section.reverse { grid-template-columns: 1fr; gap: 3rem; padding: 6rem 6%; }
+      .editorial-section .image-placeholder { height: 40vh; }
+      .editorial-section .image-placeholder.first { grid-row: 1; }
+      .values-row { grid-template-columns: 1fr; gap: 2rem; }
+      .testimonials-grid { grid-template-columns: 1fr; gap: 3.5rem; }
+      .contact-container { grid-template-columns: 1fr; }
+      .info-map-block { padding: 6rem 6%; border-left: none; border-top: 1px solid var(--border-subtle); }
+      .contact-form-block { padding: 6rem 6%; }
+    }
+
+    @media (max-width: 768px) {
+      .navbar-capsule { display: none; }
+      .mobile-bar { display: flex; }
+      footer { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 6%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-lines">
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+  </div>
+  <div class="mobile-bar">
+    <div class="brand" style="font-size: 0.85rem;">Styl & Nożyczki</div>
+    <button class="burger-btn" onclick="toggleMobileMenu()">Menu</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#o-nas" onclick="toggleMobileMenu()">O nas</a>
+    <a href="#filozofia" onclick="toggleMobileMenu()">Filozofia</a>
+    <a href="#cennik" onclick="toggleMobileMenu()">Cennik</a>
+    <a href="#kontakt" onclick="toggleMobileMenu()">Kontakt</a>
+  </div>
+  <nav class="navbar-capsule" id="navbar">
+    <a class="brand" href="#top">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 22C2 22 6 18 12 17C18 16 22 11 22 2C22 2 13 2 8 8C3 14 2 22 2 22Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M2 22L12 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span>Styl & Nożyczki</span>
+    </a>
+    <div class="nav-links">
+      <a href="#o-nas">O nas</a>
+      <a href="#filozofia">Filozofia</a>
+      <a href="#cennik">Cennik</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+    <a class="nav-cta" href="#kontakt">Rezerwuj</a>
+  </nav>
+  <section class="hero" id="top">
+    <div class="hero-content">
+      <span class="hero-eyebrow">Katowice • Atelier Botaniczne</span>
+      <h1>Świadoma pielęgnacja.<br><em>Naturalny</em> kształt włosa.</h1>
+      <p class="hero-desc">„Fryzura, która współpracuje z Twoją naturą, a nie przeciwko niej. Bez wymuszonych form, w harmonii z Tobą.”</p>
+    </div>
+    <div class="image-placeholder"></div>
+  </section>
+  <section class="editorial-section" id="o-nas">
+    <div class="text-block">
+      <span class="eyebrow">O nas</span>
+      <h2>Spokojna przestrzeń, intencjonalna praca.</h2>
+      <p>Styl & Nożyczki to kameralne studio stworzone z potrzeby zwolnienia tempa. Wierzymy, że czas spędzony na fotelu fryzjerskim powinien być momentem powrotu do równowagi. Pracujemy w ciszy i pełnym skupieniu — każdą wizytę rozpoczynamy od pogłębionego wywiadu.</p>
+      <p>Rezygnujemy z agresywnej chemii na rzecz organicznych ekstraktów, które szanują strukturę włosa i zdrowie skóry głowy.</p>
+    </div>
+    <div class="image-placeholder"></div>
+  </section>
+  <section class="editorial-section reverse" id="filozofia">
+    <div class="image-placeholder first"></div>
+    <div class="text-block">
+      <span class="eyebrow">Filozofia</span>
+      <h2>Formy, które żyją razem z Tobą.</h2>
+      <p>Projektujemy cięcia tak, aby zachowywały swój szlachetny kształt nie tylko w dniu wyjścia z salonu, ale przez wiele kolejnych tygodni. Interesuje nas naturalna tekstura, podatność włosa i jego codzienne zachowanie.</p>
+    </div>
+    <div class="values-row">
+      <div class="value-item">
+        <h4>Czysty skład</h4>
+        <p>Tylko certyfikowane, wegańskie formuły pielęgnacyjne.</p>
+      </div>
+      <div class="value-item">
+        <h4>Projektowanie</h4>
+        <p>Indywidualna architektura strzyżenia pod rysy twarzy.</p>
+      </div>
+      <div class="value-item">
+        <h4>Szacunek</h4>
+        <p>Czas dedykowany wyłącznie Tobie. Bez pośpiechu.</p>
+      </div>
+    </div>
+  </section>
+  <section class="pricing-section" id="cennik">
+    <div class="section-header">
+      <span class="eyebrow">Katalog usług</span>
+      <h2>Rytuały & Architektura Formy</h2>
+    </div>
+    <div class="pricing-container">
+      <div class="pricing-row">
+        <div class="service-info">
+          <div class="service-title">Strzyżenie Botaniczne</div>
+          <div class="service-description">Konsultacja profilu, mycie z masażem pielęgnacyjnym, autorskie cięcie i organiczny finisz.</div>
+        </div>
+        <div class="service-price">149 zł</div>
+      </div>
+      <div class="pricing-row">
+        <div class="service-info">
+          <div class="service-title">Rytuał Natural Care</div>
+          <div class="service-description">Głęboka rekonstrukcja struktur włosa z użyciem sauny parowej i masek z roślinnych ekstraktów.</div>
+        </div>
+        <div class="service-price">239 zł</div>
+      </div>
+      <div class="pricing-row">
+        <div class="service-info">
+          <div class="service-title">Subtelna Koloryzacja Organiczna</div>
+          <div class="service-description">Tonowanie lub koloryzacja oparta na olejkach, bez amoniaku. Świetlisty, trójwymiarowy efekt.</div>
+        </div>
+        <div class="service-price">od 180 zł</div>
+      </div>
+      <div class="pricing-row">
+        <div class="service-info">
+          <div class="service-title">Balayage Glaze</div>
+          <div class="service-description">Malowanie światłem. Naturalne, muśnięte słońcem refleksy z organiczną ochroną wiązań.</div>
+        </div>
+        <div class="service-price">349 zł</div>
+      </div>
+    </div>
+    <p class="pricing-footer">Ostateczna wycena zależy od indywidualnego zapotrzebowania i gęstości pasm.</p>
+  </section>
+  <section class="testimonials-section">
+    <div class="testimonials-grid">
+      <div class="testimonial-item">
+        <p class="testimonial-text">„Salon ujął mnie ciszą i tym, że fryzjer autentycznie słuchał moich obaw przed cięciem. Efekt przeszedł oczekiwania.”</p>
+        <div class="testimonial-author">Alicja K.</div>
+      </div>
+      <div class="testimonial-item">
+        <p class="testimonial-text">„Nigdy nie miałam tak lśniących włosów po farbowaniu. Kosmetyki pachną ziołami, zero pieczenia skóry.”</p>
+        <div class="testimonial-author">Maria J.</div>
+      </div>
+      <div class="testimonial-item">
+        <p class="testimonial-text">„Piękne, surowe wnętrze i mistrzowskie rzemiosło. Fryzura sama układa się po każdym porannym myciu.”</p>
+        <div class="testimonial-author">Natalia S.</div>
+      </div>
+    </div>
+  </section>
+  <section class="contact-container" id="kontakt">
+    <div class="contact-form-block">
+      <h2>Zaplanuj<br>swoją wizytę.</h2>
+      <form class="editorial-form" onsubmit="event.preventDefault(); alert('Dziękujemy! Odezwiemy się.');">
+        <div class="form-group">
+          <label for="name">Imię i nazwisko</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Adres e-mail</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+          <label for="service">Wybrany rytuał</label>
+          <select id="service">
+            <option>Strzyżenie Botaniczne</option>
+            <option>Rytuał Natural Care</option>
+            <option>Subtelna Koloryzacja Organiczna</option>
+            <option>Balayage Glaze</option>
+          </select>
+        </div>
+        <button type="submit">Wyślij zapytanie</button>
+      </form>
+    </div>
+    
+    <div class="info-map-block">
+      <div class="info-content">
+        <h3>Atelier Katowice</h3>
+        <div class="info-details">
+          <p>
+            <strong>
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 21C16 17.5 20 13.4183 20 9C20 4.58172 16 1 12 1C8 1 4 4.58172 4 9C4 13.4183 8 17.5 12 21Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                <circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+              Lokalizacja
+            </strong>
+            ul. Mariacka 12, 40-014 Katowice
+          </p>
+          <p><strong>Kontakt bezpośredni</strong><a href="tel:+48600333444">+48 600 333 444</a><br><a href="mailto:kontakt@stylinozyczki.pl">kontakt@stylinozyczki.pl</a></p>
+          <p><strong>Godziny pracy</strong>Poniedziałek – Piątek: 9:00 – 19:00<br>Sobota: 9:00 – 15:00</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div>
+      <div class="brand">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 22C2 22 6 18 12 17C18 16 22 11 22 2C22 2 13 2 8 8C3 14 2 22 2 22Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+        <span>Styl & Nożyczki</span>
+      </div>
+      <p style="margin-top: 1.5rem; font-size: 0.85rem; line-height: 1.6; opacity: 0.6;">Rzemiosło fryzjerskie oparte na szacunku do natury z domieszką nowoczesnej geometrii.</p>
+    </div>
+    <div>
+      <h4>Nawigacja</h4>
+      <ul>
+        <li><a href="#o-nas">Atelier</a></li>
+        <li><a href="#cennik">Cennik</a></li>
+        <li><a href="#kontakt">Rezerwacje</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Media</h4>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Journal</a></li>
+        <li><a href="#">Pinterest</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Styl & Nożyczki. Projekt i wykonanie w duchu ekologicznego minimalizmu.
+    </div>
+  </footer>
+
+  <script>
+    let lastScrollY = window.scrollY;
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 150) {
+        navbar.classList.add('hide');
+      } else {
+        navbar.classList.remove('hide');
+      }
+      lastScrollY = window.scrollY;
+    });
+
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
